@@ -171,8 +171,248 @@ def mult(a, b):
 add(3, 5)
 mult(3, 5)
 
-add(mult(3,5), 5)
+# add(mult(3,5), 5)  produces a NoneType err!!!!
 # mult(add(3, 5), 5)
+
+# Dictionary
+# are a collection of key and value pairs separated by commas but split with a colon  -->   'key':'value'
+# They are psuedo-ordered, muteable, iterable
+#  ALSO to mention because of the shared curly braces for distinction:  
+# SETS  - Kind of a cross between a list and a dictionary. . .   
+# The difference is whether a key/value pair or just items separated by a comma
+print('\n DICTIONARIES!!!')
+
+my_dictionary = { 'key' : 'value', 'key2' : 'value'}
+
+# ex_dic = {'key' : 'value', 2 : '2', '2' : 2, 'list': [5, 4, 456, 6575]}
+ex_dic = {
+    'key' : 'value', 
+    2 : '2', 
+    '2' : 2, 
+    'list': [5, 4, 456, 6575]
+}
+
+num_list = [0, 1, 2]
+num_dic = {
+    '0':0,
+    '1':1,
+    '2':2
+}
+print(num_dic['0'])
+print(num_list[0])
+
+print(num_dic['1'])
+print(num_list[1])
+
+confused_dic = {
+    0 : 983745345,
+    'a string': [2, 'kjhsdf', [{'key':[{'secret':'nested!'}]}, 'second']]
+}
+# print(confused_dic)
+# print(confused_dic['a string'])
+# print(confused_dic['a string'][1])
+
+print(confused_dic)
+print(confused_dic['a string'])
+print(confused_dic['a string'][2])
+print(confused_dic['a string'][2][0])
+print(confused_dic['a string'][2][0]['key'])
+print(confused_dic['a string'][2][0]['key'][0])
+print(confused_dic['a string'][2][0]['key'][0]['secret'])
+
+print(confused_dic['a string'][2][1])
+
+students = {
+    'Ann': {
+        'python': [100, 95, 100],
+        'R' : [75, 80, 90, 100]
+    },
+    'Amanda' : {
+        'python': [75, 55, 100],
+        'R' : [90, 95, 100]
+    }
+}
+
+print(students['Ann']['python'][1])
+print(students['Amanda']['python'][1])
+
+#conditionals
+#  if  /  elif   /else
+#  we can have ANY number of if statements
+# following an if (or elif) there is some statement to evaluate as True or False
+#  we use elif or else to evaluate the SAME thing against different parameters
+
+
+age = 76
+
+if age < 18:
+    print('Kid!')
+elif age >= 18:
+    print('Adult')
+elif age >= 65:
+    print('Senior')
+
+if age > 17 and age > 65:
+    print('Senior')
+
+
+#truth tree:
+#  T + T --> True
+# T + F  --> False
+# F + F --> False
+
+# T | T --> True
+# T | F --> True
+# F | F --> False
+
+#input
+#  grabbing user input as a string that is saved to a variable:
+# user_string = input('What do you wanna do?')
+#CREATE REMOVE VOWELS FUNCTION!!!
+
+# ans_return = f"Awesome!  Let's go {user_string.upper()}"
+
+# print(ans_return)
+
+# Functions
+#Syntax:
+# def func_name(parameters):
+#     this is the codeblock to execute
+def rem_vow(string):
+    vow = 'aeiou'
+    ans = ''
+    for s in string.lower():
+        if s in vow:
+            ans += 'X'
+        else:
+            ans += s
+    return ans
+
+print(rem_vow('This is a random string'))
+
+#membership checks
+# the in keyword in python will check within relevant datatype (strings, lists, dictionaries (keys at least))
+
+#looping
+# 3 basic types of loops in python
+    # the for loop, the index loop, and the while loop
+
+anum_list = [1, 2, 3, 4, 5]
+abc_st = 'abcde'
+
+#For loop-->   for item in items:
+#                   codeblock to execute on ITEM
+
+for num in anum_list:
+    print(num *10)
+
+for letter in abc_st:
+    print(letter.upper())
+
+
+# for num in anum_list:   ----> You can't change items in list, you CAN reassign an index in a list . . . 
+#     num = 1
+# print(anum_list)
+
+# index loop
+# BUT FIRST--- range()
+# start, stop, step  . . .   only the stop is required
+# print(range(10)) -->  this is a generator so it doesn't do anything until it has to
+for x in range(10):
+    print(x)
+print('\n')
+for x in range(5,10):
+    print(x)
+print('\n')
+for x in range(10, 0, -1):
+    print(x)
+
+#back to INDEX loop
+# for i in range(len(iterable)):
+print(anum_list)
+print('\nINDEX LOOP!')
+
+# for a in anum_list:
+for i in range(len(anum_list)):
+    print(i, anum_list[i])
+    anum_list[i] = 10
+print(anum_list)
+
+print('\nst:', abc_st)
+for i in range(len(abc_st)):
+    print(i, abc_st[i])
+
+
+#while loop
+# simple but complicated. . . user defined
+# syntax -->  while <condition>
+#  DON'T do infinite loops, they're bad!
+
+while True:
+    print('HELLLLLLOOOOOOOOOOOO Bonfire!')
+    break
+
+ex_str = 'HHHHHi there!'
+
+flag = True
+point = 0
+while flag:
+    vow = 'aeiou'
+    print('flag is True')
+    if ex_str[point] in vow:
+        flag = False
+    point += 1
+
+#  Incrementing and decrementing:
+#   +=   or  -=  or   *=    is short-hand for 
+#  point = point + 1
+#  point += 1
+#  point +1  THIS is just a number
+
+# Looping through dictionaries!!!
+looper_dic = {
+    'a' : 0,
+    'b' : 1,
+    'c' : 2,
+    'd' : 3,
+    'e' : 4
+}
+
+# basic loop gives you the keys
+for l in looper_dic:
+    print(l)
+
+#  There are methods(attributes) for looping through dictionaries
+#   .keys()    |    .values()    |   .items()
+
+for l in looper_dic.keys(): #kinda redundant/worthless. . .  this is already what you get in a basic for loop
+    print(l)
+
+print('\n.values():')
+for l in looper_dic.values():
+    print(l)
+print(looper_dic.values())
+print(list(looper_dic.values()))
+
+print('\n.items():')
+for key, value in looper_dic.items():
+    print(key, value)
+
+for l in looper_dic:
+    print(looper_dic[l])
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
